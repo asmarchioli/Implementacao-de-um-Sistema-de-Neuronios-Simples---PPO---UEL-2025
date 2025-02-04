@@ -33,6 +33,11 @@ Este projeto visa implementar uma classe abstrata que representa um neurônio ge
 
 ### Exemplo da Função main
 
-A função `main` cria instâncias da classe `NeuronioReLU` com diferentes conjuntos de pesos e bias. Em seguida, passa um conjunto de entradas a cada neurônio e exibe a saída resultante. Isso permite verificar se a implementação da função `predict` está correta e se o cálculo da saída está sendo feito conforme o esperado.
+A função `main` cria ponteiros para instâncias da classe `NeuronioReLU` e manipula esses objetos através de ponteiros para a classe base `Neuronio`. Em seguida, passa um conjunto de entradas a cada neurônio e exibe a saída resultante. Isso permite verificar se a implementação da função `predict` está correta e se o cálculo da saída está sendo feito conforme o esperado.
 
-No código `main`, dois objetos `NeuronioReLU` são criados com pesos `{0.2, 0.4}` e biases `-1.5` e `-0.5`. As entradas `{0.3, 2.0}` são passadas para cada neurônio, e as saídas são exibidas no console.
+No código `main`, três ponteiros `Neuronio` são criados e inicializados com objetos `NeuronioReLU` com diferentes pesos e bias:
+- Neuronio 1: Pesos `{0.3, 0.7}` e bias `0.5`. As entradas `{0.4, 0.5}` são passadas, garantindo que o resultado seja positivo e exibido no console.
+- Neuronio 2: Pesos `{0.1, 0.1}` e bias `-0.2`. As entradas `{1.0, 1.0}` são passadas, garantindo que a soma ponderada mais o bias seja `0`, exibindo `0` no console.
+- Neuronio 3: Pesos `{-0.2, -0.4}` e bias `-0.5`. As entradas `{1.0, 1.0}` são passadas, garantindo que a soma ponderada mais o bias seja negativa, exibindo `0` no console devido à aplicação da função ReLU.
+
+Finalmente, os objetos são deletados para liberar a memória alocada.
